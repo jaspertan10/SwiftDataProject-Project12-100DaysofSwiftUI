@@ -16,6 +16,9 @@ class User {
     var city: String
     var joinDate: Date
     
+    //@Relationship macro makes it so when you delete a User from SwiftData, the corresponding Job gets deleted as well
+    @Relationship(deleteRule: .cascade) var jobs: [Job] = []
+    
     init(name: String, city: String, joinDate: Date) {
         self.name = name
         self.city = city
